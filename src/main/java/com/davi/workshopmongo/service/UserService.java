@@ -41,4 +41,11 @@ public class UserService {
 		findById(id);
 		ur.deleteById(id);
 	}
+	
+	public User update(UserDTO obj, String id) {
+		User user = findById(id);
+		user.setEmail(obj.getEmail());
+		user.setName(obj.getName());
+		return ur.save(user);
+	}
 }
