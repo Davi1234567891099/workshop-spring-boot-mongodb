@@ -1,5 +1,6 @@
 package com.davi.workshopmongo.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,10 @@ public class PostService {
 	
 	public List<Post> findByTitleContaining(String text) {
 		return pr.searchByTitle(text);
+	}
+	
+	public List<Post> fullSearch(String text, Date minDate, Date maxDate){
+		maxDate = new Date(maxDate.getTime() + 24 * 60 * 60 * 1000);
+		return pr.fullSearch(text, minDate, maxDate);
 	}
 }
