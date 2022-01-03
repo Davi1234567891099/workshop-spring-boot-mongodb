@@ -26,6 +26,9 @@ public class PostService {
 		catch(RuntimeException e) {
 			throw new ObjectNotFoundException("Object not exists.");
 		}
-		
+	}
+	
+	public List<Post> findByTitleContaining(String text) {
+		return pr.findByTitleContainingIgnoreCase(text);
 	}
 }
